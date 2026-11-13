@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="A practical Java learning and interview revision guide for software QA engineers and Selenium automation beginners." />
+<title>Java for Software QA & Selenium Automation | Complete Revision Guide</title>
+<style>
+:root{--bg:#f4f7fb;--surface:#fff;--ink:#172033;--muted:#5e6b82;--line:#e1e7f0;--navy:#101b35;--navy2:#19294a;--teal:#0d9488;--teal-soft:#e6f7f5;--blue:#2563eb;--blue-soft:#edf3ff;--amber:#b45309;--amber-soft:#fff6e8;--purple:#6d4aff;--purple-soft:#f1edff;--red:#b42318;--red-soft:#fff0ee;--green:#15803d;--green-soft:#eaf8ee;--code:#111827;--shadow:0 14px 40px rgba(20,35,65,.08);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}button,input{font:inherit}.shell{max-width:1500px;margin:auto}.topbar{position:sticky;top:0;z-index:30;background:rgba(16,27,53,.96);backdrop-filter:blur(14px);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}.topbar-inner{max-width:1500px;margin:auto;display:flex;align-items:center;gap:18px;padding:12px 26px}.brand{font-weight:800;letter-spacing:.2px;white-space:nowrap}.brand span{color:#5eead4}.top-links{display:flex;gap:14px;margin-left:auto;font-size:13px}.top-links a{color:#d5def0}.top-actions{display:flex;gap:8px}.tool-btn{border:1px solid rgba(255,255,255,.2);color:white;background:rgba(255,255,255,.08);border-radius:10px;padding:7px 11px;cursor:pointer;font-size:12px}.tool-btn:hover{background:rgba(255,255,255,.16)}.hero{background:radial-gradient(circle at 80% 10%,rgba(45,212,191,.22),transparent 28%),linear-gradient(130deg,#101b35,#1d3760 62%,#0f766e);color:#fff;padding:56px 36px 42px}.hero-inner{max-width:1400px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;color:#99f6e4;font-weight:800}.hero h1{font-size:clamp(32px,4vw,54px);line-height:1.08;max-width:900px;margin:14px 0}.hero p{font-size:17px;color:#d9e5f8;max-width:850px;margin:16px 0 24px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.09);border-radius:999px;padding:6px 11px;font-size:12px;color:#eef7ff}.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px}.stat strong{display:block;font-size:24px}.stat small{color:#b9c9df}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:26px;max-width:1450px;margin:28px auto;padding:0 24px}.sidebar{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 94px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 6px 22px rgba(20,35,65,.04)}.side-title{font-size:11px;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase;font-weight:800;margin:2px 0 12px}.side-nav{display:grid;gap:3px}.side-nav a{color:#42506a;font-size:13px;padding:7px 9px;border-radius:8px}.side-nav a:hover,.side-nav a.active{background:var(--blue-soft);color:#1746ac;text-decoration:none;font-weight:700}.side-note{margin-top:17px;padding:12px;background:var(--teal-soft);border-radius:12px;color:#155e58;font-size:12px}.content{min-width:0}.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface);padding:14px;border:1px solid var(--line);border-radius:15px;box-shadow:0 5px 20px rgba(20,35,65,.04);margin-bottom:20px}.search-wrap{position:relative;flex:1;min-width:220px}.search-wrap input{width:100%;border:1px solid #d6deea;background:#fbfcfe;padding:10px 13px 10px 38px;border-radius:10px;outline:none}.search-wrap input:focus{border-color:#6b8ce5;box-shadow:0 0 0 3px #dfe8ff}.search-icon{position:absolute;left:13px;top:8px;color:#77839a}.toolbar button{border:1px solid var(--line);background:#fff;color:#34415b;border-radius:9px;padding:9px 12px;cursor:pointer;font-size:12px}.progress-wrap{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted)}.progress{width:120px;height:7px;background:#e8edf5;border-radius:99px;overflow:hidden}.progress>span{height:100%;width:0;background:linear-gradient(90deg,var(--teal),#4f9cf7);display:block;transition:width .2s}.intro-card,.section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 5px 22px rgba(20,35,65,.035);margin-bottom:20px;overflow:hidden}.intro-card{padding:23px 25px}.intro-card h2{margin:0 0 6px;font-size:20px}.intro-card p{margin:5px 0;color:var(--muted)}.section{scroll-margin-top:86px}.section-head{display:flex;gap:14px;align-items:flex-start;padding:22px 24px 15px;border-bottom:1px solid #edf0f5}.num{flex:0 0 38px;height:38px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800}.section-head h2{margin:0;font-size:22px;line-height:1.25}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}.section-body{padding:22px 24px 26px}.section-body h3{font-size:17px;margin:24px 0 8px;color:#20314e}.section-body h3:first-child{margin-top:0}.section-body h4{font-size:14px;margin:17px 0 6px}.section-body p{margin:8px 0}.section-body ul,.section-body ol{padding-left:22px}.section-body li{margin:5px 0}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mini-card{border:1px solid var(--line);border-radius:13px;padding:14px;background:#fff}.mini-card h4{margin:0 0 6px}.mini-card p{font-size:13px;color:var(--muted);margin:0}.callout{border-left:4px solid var(--teal);background:var(--teal-soft);padding:12px 15px;border-radius:0 11px 11px 0;margin:14px 0;font-size:13px}.callout.warn{border-color:#e5a12b;background:var(--amber-soft)}.callout.interview{border-color:var(--purple);background:var(--purple-soft)}.callout.danger{border-color:#dc5a4e;background:var(--red-soft)}.tag{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.7px;font-weight:800;padding:4px 7px;border-radius:6px;background:#edf2fa;color:#4d5d79;vertical-align:middle}.tag.qa{background:var(--teal-soft);color:#0f766e}.tag.interview{background:var(--purple-soft);color:#5b3fd1}.tag.warning{background:var(--amber-soft);color:#95530b}table{width:100%;border-collapse:separate;border-spacing:0;margin:12px 0 18px;font-size:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden}th{background:#f0f4fa;color:#263653;text-align:left;font-weight:800}td,th{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border-bottom:0}td code{white-space:nowrap}.table-scroll{overflow-x:auto}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.92em;background:#eef2f8;color:#243552;padding:2px 5px;border-radius:5px}.codebox{position:relative;margin:13px 0 17px;background:var(--code);border-radius:13px;overflow:hidden;border:1px solid #25334c}.code-label{display:flex;justify-content:space-between;align-items:center;padding:8px 13px;background:#1e293b;color:#b9c7dc;font-size:11px;letter-spacing:.4px}.copy{border:1px solid #52617a;border-radius:7px;background:#27364f;color:white;padding:5px 9px;font-size:11px;cursor:pointer}.copy:hover{background:#344967}.codebox pre{margin:0;padding:16px;overflow:auto;color:#e5edf8;font:12.5px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:4}.codebox pre code{background:transparent;color:inherit;padding:0;white-space:pre}.inline-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:12px;margin:12px 0;background:#f6f8fc;border:1px solid var(--line);border-radius:12px}.flow-box{background:#fff;border:1px solid #cfd9e8;padding:9px 13px;border-radius:9px;font-size:12px;font-weight:700;text-align:center}.arrow{font-weight:900;color:#70809c}.qa-box{background:#f0fbfa;border:1px solid #cbece8;border-radius:13px;padding:14px;margin:14px 0}.qa-box h4{margin:0 0 7px;color:#11665f}.qa-box p{font-size:13px;margin:4px 0}.quiz{border:1px solid #dce4f0;border-radius:13px;padding:15px;margin:12px 0;background:#fcfdff}.quiz h4{margin:0 0 10px}.quiz button{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 11px;background:white;border:1px solid #dce3ee;border-radius:8px;cursor:pointer;color:#26344e}.quiz button:hover{border-color:#7e9dea;background:#f4f7ff}.quiz button.correct{border-color:#4aa66a;background:#edfaf1}.quiz button.wrong{border-color:#dc6a60;background:#fff1ef}.feedback{font-size:12px;margin-top:8px;color:var(--muted)}details{border:1px solid var(--line);border-radius:11px;padding:11px 13px;margin:9px 0;background:#fff}summary{cursor:pointer;font-weight:700;color:#2b3b58}details p,details ul{font-size:13px;color:#53617a;margin-bottom:3px}.check-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.check-item{display:flex;gap:8px;align-items:flex-start;background:#f8fafc;border:1px solid var(--line);border-radius:9px;padding:9px;font-size:13px}.check-item input{margin-top:4px;accent-color:var(--teal)}.muted{color:var(--muted)}.small{font-size:12px}.pill{display:inline-block;border-radius:99px;background:#edf2f8;padding:3px 8px;font-size:11px;color:#53627a;margin:2px}.footer{padding:30px 24px 50px;color:#68758c;text-align:center;font-size:12px}.hidden{display:none!important}.no-results{display:none;padding:25px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #cbd5e1;border-radius:14px}.top-callout{background:#fff8e8;border:1px solid #f2dfad;padding:12px 15px;border-radius:12px;margin:14px 0;font-size:13px}.definition{font-size:16px;color:#2c3d5c;font-weight:600}.kbd{font-family:monospace;background:#e9eef6;border:1px solid #d5deeb;border-bottom-width:2px;border-radius:5px;padding:1px 5px;font-size:11px}
+@media(max-width:1050px){.layout{grid-template-columns:220px minmax(0,1fr);gap:16px}.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.top-links{display:none}}
+@media(max-width:760px){.layout{display:block;padding:0 13px;margin:15px auto}.sidebar{position:relative;top:auto;max-height:none;margin-bottom:14px}.side-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.side-note{display:none}.hero{padding:39px 20px 32px}.topbar-inner{padding:10px 14px}.brand{font-size:13px}.hero-stats{gap:16px}.intro-card,.section-body{padding:17px}.section-head{padding:17px}.section-head h2{font-size:19px}.grid2,.grid3,.check-list{grid-template-columns:1fr}.toolbar{padding:10px}.progress-wrap{width:100%}.progress{flex:1}.codebox pre{font-size:11.5px}}
+@media print{body{background:#fff;font-size:11px}.topbar,.toolbar,.sidebar,.copy,.top-actions{display:none!important}.hero{background:#fff;color:#111;padding:20px;border-bottom:2px solid #222}.hero p,.hero .chip,.hero .stat small,.eyebrow{color:#333}.layout{display:block;margin:0;padding:0}.section,.intro-card{box-shadow:none;break-inside:avoid;border:1px solid #bbb}.section{break-before:auto}.section-body{padding:12px}.codebox{break-inside:avoid}.codebox pre{white-space:pre-wrap}.codebox pre,.code-label{background:#f1f3f5;color:#111}.code-label{border-bottom:1px solid #ccc}.footer{padding:15px}.section-head{padding:12px}.no-results{display:none!important}a{color:#111;text-decoration:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner"><div class="brand">JAVA <span>FOR QA</span> / SELENIUM</div><div class="top-links"><a href="#foundation">Core Java</a><a href="#oops">OOP</a><a href="#collections">Collections</a><a href="#selenium">Selenium connection</a><a href="#interview">Interview bank</a></div><div class="top-actions"><button class="tool-btn" onclick="window.print()">Print / Save PDF</button></div></div></div>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">STAD full-stack automation · Java revision</div><h1>Java, made clear.<br><span style="color:#5eead4">Built for Software QA & Selenium.</span></h1><p>A practical, end-to-end revision guide—from your first variable to the Java concepts used inside real Selenium automation frameworks. Learn the rule, see the code, understand the interview trap, and connect it to testing.</p><div class="chips"><span class="chip">Beginner → Intermediate → Interview-ready</span><span class="chip">Java fundamentals + OOP</span><span class="chip">Collections + Exceptions</span><span class="chip">Selenium 4 examples</span></div><div class="hero-stats"><div class="stat"><strong>18</strong><small>core learning modules</small></div><div class="stat"><strong>30+</strong><small>interview checkpoints</small></div><div class="stat"><strong>QA</strong><small>real automation connections</small></div></div></div></header>
+<div class="layout">
+<aside class="sidebar"><div class="side-title">Guide contents</div><nav class="side-nav">
+<a href="#start">How to use this guide</a><a href="#foundation">Java foundation</a><a href="#variables">Variables & scope</a><a href="#datatypes">Data types</a><a href="#operators">Operators</a><a href="#conditions">Conditions & switch</a><a href="#loops">Loops</a><a href="#methods">Methods / functions</a><a href="#arrays">Arrays</a><a href="#oops">OOP overview</a><a href="#inheritance">Inheritance</a><a href="#polymorphism">Polymorphism</a><a href="#abstraction">Abstraction</a><a href="#encapsulation">Encapsulation</a><a href="#constructors">Constructors</a><a href="#interfaces">Interfaces</a><a href="#strings">Strings</a><a href="#exceptions">Exception handling</a><a href="#collections">Collections</a><a href="#selenium">Java in Selenium</a><a href="#interview">Interview questions</a><a href="#practice">Practice roadmap</a><a href="#glossary">Quick glossary</a>
+</nav><div class="side-note"><strong>Best study loop</strong><br>Read one concept → type the example yourself → change the input → predict the output → explain it aloud.</div></aside>
+<main class="content">
+<div class="toolbar"><div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Search a topic, method, keyword or interview point…" aria-label="Search this Java guide" /></div><button id="expandAll">Expand all notes</button><button id="collapseAll">Collapse notes</button><div class="progress-wrap"><span>Revision progress</span><div class="progress"><span id="progressBar"></span></div><strong id="progressText">0%</strong></div></div>
+<section class="intro-card" id="start"><h2>How to use this guide</h2><p>This guide follows your STAD class outline and adds the small but important details that are commonly tested in Java and Selenium interviews. You do not need to memorize every line. Focus on understanding the behaviour and being able to write a short example without copying.</p><div class="grid3"><div class="mini-card"><h4>01 · Understand</h4><p>Read the definition and the “why it matters” note.</p></div><div class="mini-card"><h4>02 · Practise</h4><p>Type code in Eclipse/IDE yourself and run it.</p></div><div class="mini-card"><h4>03 · Explain</h4><p>Answer the interview checkpoint in your own words.</p></div></div><div class="top-callout"><strong>Important distinction:</strong> Java is a general-purpose programming language. Selenium WebDriver is an automation library that provides browser-control APIs. Java is one language you can use to write Selenium tests.</div></section>
+<div class="no-results" id="noResults">No matching topic found. Try another keyword such as <strong>static</strong>, <strong>HashMap</strong>, <strong>overloading</strong> or <strong>wait</strong>.</div>
+
+<section class="section searchable" id="foundation" data-search="java platform jdk jre jvm program class main package import compile bytecode runtime scanner system out println"><div class="section-head"><div class="num">00</div><div><h2>Java foundation: what runs your program?</h2><p>Start here if you need to understand the Java ecosystem and the shape of a basic program.</p></div></div><div class="section-body">
+<p class="definition">Java source code is compiled into bytecode. The Java Virtual Machine (JVM) runs that bytecode on a particular operating system.</p><div class="inline-flow"><div class="flow-box">Your source<br><code>.java</code></div><span class="arrow">→ javac →</span><div class="flow-box">Bytecode<br><code>.class</code></div><span class="arrow">→ JVM →</span><div class="flow-box">Program runs<br>on the OS</div></div>
+<table><thead><tr><th>Term</th><th>Meaning</th><th>Remember</th></tr></thead><tbody><tr><td><strong>JDK</strong></td><td>Java Development Kit: tools to develop, compile and run Java programs.</td><td>Developers install a JDK.</td></tr><tr><td><strong>JRE</strong></td><td>Java Runtime Environment: runtime components needed to run Java applications.</td><td>Traditional conceptual distinction; modern JDK distributions can provide runtime images directly.</td></tr><tr><td><strong>JVM</strong></td><td>Java Virtual Machine: executes Java bytecode and manages runtime memory.</td><td>JVM implementation is platform-specific; bytecode is designed to be portable.</td></tr><tr><td><strong>API</strong></td><td>Ready-made classes and interfaces, such as <code>String</code>, <code>Scanner</code> and collections.</td><td>Use APIs instead of reinventing common functionality.</td></tr></tbody></table>
+<h3>Basic Java program anatomy</h3><div class="codebox"><div class="code-label">JAVA · BASIC CLASS <button class="copy">Copy code</button></div><pre><code>package day1;                  // Optional: declares the package
+
+import java.util.Scanner;      // Imports a library type
+
+public class HelloJava {
+    public static void main(String[] args) {  // Program entry point
+        System.out.println("Hello, Java!");
+    }
+}</code></pre></div>
+<ul><li><code>class</code> defines a class; the class groups data and behaviour.</li><li><code>main</code> is the conventional entry point used by the Java launcher.</li><li><code>public</code> means accessible from anywhere (subject to module/package rules).</li><li><code>static</code> lets the launcher call <code>main</code> without first creating an object.</li><li><code>void</code> means the method returns no value.</li><li><code>String[] args</code> receives command-line arguments.</li></ul>
+<div class="callout interview"><strong>Interview checkpoint:</strong> Java is often called platform-independent because compiled bytecode can run on any platform that has a compatible JVM. The JVM itself is not the same binary on every operating system.</div>
+<h3>Package, import and Scanner</h3><p>A <strong>package</strong> organizes related classes and helps avoid naming conflicts. An <strong>import</strong> lets you refer to a type by its simple name. <code>java.lang</code> is imported automatically; <code>java.util.Scanner</code> is not.</p><div class="codebox"><div class="code-label">JAVA · USER INPUT <button class="copy">Copy code</button></div><pre><code>import java.util.Scanner;
+
+public class ReadInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+        System.out.println("Age = " + age);
+        sc.close();
+    }
+}</code></pre></div>
+<div class="callout warn"><strong>Scanner detail:</strong> <code>next()</code> reads one token; <code>nextLine()</code> reads the remaining line. After <code>nextInt()</code>, a newline may remain in the input buffer. If you then need a full line, consume that newline with an extra <code>nextLine()</code>.</div>
+</div></section>
+
+<section class="section searchable" id="variables" data-search="variable declaration initialization local instance static class variable scope lifetime final constant naming"><div class="section-head"><div class="num">01</div><div><h2>Variables, scope and constants</h2><p>A variable is a named location used to hold a value while a program runs.</p></div></div><div class="section-body">
+<h3>Declaration, initialization and assignment</h3><div class="codebox"><div class="code-label">JAVA · VARIABLE BASICS <button class="copy">Copy code</button></div><pre><code>int score;          // declaration
+score = 95;         // assignment / initialization after declaration
+int attempts = 2;  // declaration and initialization together
+attempts = 3;       // reassignment</code></pre></div>
+<h3>Three common variable categories</h3><table><thead><tr><th>Type</th><th>Declared where?</th><th>Lifetime / default value</th><th>Example</th></tr></thead><tbody><tr><td><strong>Local</strong></td><td>Inside a method, constructor or block</td><td>Exists while that block executes. No automatic default value; initialize before reading.</td><td><code>int total = 0;</code></td></tr><tr><td><strong>Instance</strong></td><td>Inside class, outside methods; without <code>static</code></td><td>Belongs to each object. Gets a default value.</td><td><code>String name;</code></td></tr><tr><td><strong>Static / class</strong></td><td>Inside class with <code>static</code></td><td>One class-level field shared by instances. Gets a default value.</td><td><code>static int count;</code></td></tr></tbody></table>
+<div class="codebox"><div class="code-label">JAVA · VARIABLE SCOPE <button class="copy">Copy code</button></div><pre><code>class Counter {
+    int objectCount = 0;          // instance variable
+    static int totalCreated = 0;  // class variable
+
+    void create() {
+        int localStep = 1;        // local variable
+        objectCount++;
+        totalCreated++;
+        System.out.println(localStep);
+    }
+}</code></pre></div>
+<h3>Naming rules and conventions</h3><ul><li>Names are case-sensitive: <code>age</code> and <code>Age</code> are different.</li><li>Names can contain letters, digits, underscore and dollar sign, but cannot start with a digit.</li><li>Keywords such as <code>class</code>, <code>int</code> and <code>public</code> cannot be identifiers.</li><li>Use <code>camelCase</code> for variables and methods: <code>firstName</code>, <code>calculateTotal()</code>.</li><li>Use <code>PascalCase</code> for class names: <code>LoginPage</code>.</li><li>Use uppercase with underscores for constants by convention: <code>MAX_RETRIES</code>.</li></ul>
+<h3>Constants with <code>final</code></h3><div class="codebox"><div class="code-label">JAVA · FINAL VARIABLE <button class="copy">Copy code</button></div><pre><code>final int MAX_RETRIES = 3;
+// MAX_RETRIES = 5;  // Compile-time error: cannot reassign a final variable</code></pre></div>
+<div class="callout interview"><strong>Hidden interview point:</strong> Instance and static fields receive default values (<code>0</code>, <code>false</code>, <code>null</code>, etc.). Local variables do not. Java forces you to assign a local variable before using it.</div>
+</div></section>
+
+<section class="section searchable" id="datatypes" data-search="data types primitive non primitive byte short int long float double char boolean reference object string array casting type conversion wrapper autoboxing unboxing"><div class="section-head"><div class="num">02</div><div><h2>Data types and type conversion</h2><p>Java is statically typed: every variable has a declared type.</p></div></div><div class="section-body">
+<h3>Two broad categories</h3><div class="grid2"><div class="mini-card"><h4>Primitive types</h4><p>Store simple values directly: numeric values, characters and true/false.</p><p><span class="pill">8 types</span> byte · short · int · long · float · double · char · boolean</p></div><div class="mini-card"><h4>Reference types</h4><p>Variables hold a reference to an object. Examples include <code>String</code>, arrays, classes, interfaces and enums.</p><p><span class="pill">Object references</span> may be <code>null</code>.</p></div></div>
+<h3>All 8 primitive data types</h3><div class="table-scroll"><table><thead><tr><th>Type</th><th>Size</th><th>Typical use / range</th><th>Example</th></tr></thead><tbody><tr><td><code>byte</code></td><td>8-bit</td><td>-128 to 127</td><td><code>byte b = 100;</code></td></tr><tr><td><code>short</code></td><td>16-bit</td><td>-32,768 to 32,767</td><td><code>short s = 1000;</code></td></tr><tr><td><code>int</code></td><td>32-bit</td><td>-2³¹ to 2³¹−1; common whole-number type</td><td><code>int age = 30;</code></td></tr><tr><td><code>long</code></td><td>64-bit</td><td>Large whole numbers</td><td><code>long id = 9876543210L;</code></td></tr><tr><td><code>float</code></td><td>32-bit</td><td>Approximate decimal, about 6–7 significant digits</td><td><code>float price = 10.5f;</code></td></tr><tr><td><code>double</code></td><td>64-bit</td><td>Approximate decimal, about 15–16 significant digits; default decimal literal</td><td><code>double rate = 9.75;</code></td></tr><tr><td><code>char</code></td><td>16-bit</td><td>One UTF-16 code unit</td><td><code>char grade = 'A';</code></td></tr><tr><td><code>boolean</code></td><td>JVM-dependent storage</td><td><code>true</code> or <code>false</code></td><td><code>boolean passed = true;</code></td></tr></tbody></table></div>
+<div class="callout warn"><strong>Common mistakes:</strong> Use <code>L</code> for a long literal when needed, <code>f</code> for a float literal, single quotes for <code>char</code>, and double quotes for <code>String</code>. A decimal literal such as <code>10.5</code> is a <code>double</code> by default.</div>
+<h3>Widening and narrowing conversions</h3><div class="grid2"><div class="mini-card"><h4>Widening · usually automatic</h4><p>Converts a smaller compatible numeric type into a larger one.</p><code>int n = 10;<br>double d = n;</code></div><div class="mini-card"><h4>Narrowing · explicit cast</h4><p>May lose information or overflow, so you must cast.</p><code>double d = 10.9;<br>int n = (int) d; // 10</code></div></div>
+<h3>Integer division vs decimal division</h3><div class="codebox"><div class="code-label">JAVA · CASTING AND DIVISION <button class="copy">Copy code</button></div><pre><code>int a = 5;
+int b = 2;
+System.out.println(a / b);        // 2: integer division
+System.out.println(a / 2.0);      // 2.5: decimal division
+System.out.println((double) a / b); // 2.5</code></pre></div>
+<h3>Wrapper classes, autoboxing and unboxing</h3><p>Every primitive has a corresponding wrapper class: <code>int → Integer</code>, <code>double → Double</code>, <code>boolean → Boolean</code>, and so on. Collections store objects, not primitive types, so wrappers are used with generics.</p><div class="codebox"><div class="code-label">JAVA · WRAPPER EXAMPLE <button class="copy">Copy code</button></div><pre><code>int primitive = 10;
+Integer object = primitive;  // autoboxing
+int again = object;           // unboxing
+
+ArrayList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();
+numbers.add(10);</code></pre></div>
+<div class="callout interview"><strong>Interview checkpoint:</strong> <code>String</code> is not primitive. It is a class (reference type). Java has exactly eight primitive types.</div>
+</div></section>
+
+<section class="section searchable" id="operators" data-search="operators arithmetic relational comparison logical short circuit assignment increment decrement bitwise ternary modulus precedence"><div class="section-head"><div class="num">03</div><div><h2>Operators</h2><p>Operators perform calculations, comparisons and logical decisions.</p></div></div><div class="section-body">
+<table><thead><tr><th>Category</th><th>Operators</th><th>Example</th></tr></thead><tbody><tr><td>Arithmetic</td><td><code>+ - * / %</code></td><td><code>total = a + b;</code></td></tr><tr><td>Relational</td><td><code>== != &gt; &lt; &gt;= &lt;=</code></td><td><code>age &gt;= 18</code></td></tr><tr><td>Logical</td><td><code>&amp;&amp; || !</code></td><td><code>isLoggedIn &amp;&amp; hasAccess</code></td></tr><tr><td>Assignment</td><td><code>= += -= *= /= %=</code></td><td><code>count += 1;</code></td></tr><tr><td>Increment / decrement</td><td><code>++ --</code></td><td><code>i++;</code></td></tr><tr><td>Conditional / ternary</td><td><code>? :</code></td><td><code>status = passed ? "PASS" : "FAIL";</code></td></tr><tr><td>Bitwise</td><td><code>&amp; | ^ ~ &lt;&lt; &gt;&gt; &gt;&gt;&gt;</code></td><td>Works at bit level; less common in UI automation.</td></tr></tbody></table>
+<h3>Logical operators: short-circuit matters</h3><div class="codebox"><div class="code-label">JAVA · LOGICAL OPERATORS <button class="copy">Copy code</button></div><pre><code>int age = 25;
+boolean hasId = true;
+
+if (age &gt;= 18 &amp;&amp; hasId) {
+    System.out.println("Allowed");
+}
+
+if (age &lt; 18 || !hasId) {
+    System.out.println("Not allowed");
+}</code></pre></div><ul><li><code>&amp;&amp;</code> stops evaluating when the left side is false.</li><li><code>||</code> stops evaluating when the left side is true.</li><li><code>&amp;</code> and <code>|</code> can also operate on booleans, but they do not short-circuit.</li></ul>
+<h3>Pre-increment vs post-increment</h3><div class="codebox"><div class="code-label">JAVA · INCREMENT <button class="copy">Copy code</button></div><pre><code>int x = 5;
+System.out.println(x++); // prints 5, then x becomes 6
+System.out.println(++x); // x becomes 7, then prints 7</code></pre></div>
+<div class="callout interview"><strong>Small but common interview trap:</strong> <code>=</code> assigns a value; <code>==</code> compares primitive values or reference identity. For comparing String content, normally use <code>equals()</code>, not <code>==</code>.</div>
+</div></section>
+
+<section class="section searchable" id="conditions" data-search="conditional statement if else nested if else if switch break default fall through decision"><div class="section-head"><div class="num">04</div><div><h2>Conditional statements</h2><p>Use conditions to make your program choose what to do.</p></div></div><div class="section-body">
+<h3>if, if-else and else-if</h3><div class="codebox"><div class="code-label">JAVA · CONDITIONAL LOGIC <button class="copy">Copy code</button></div><pre><code>int score = 78;
+
+if (score &gt;= 90) {
+    System.out.println("A grade");
+} else if (score &gt;= 70) {
+    System.out.println("B grade");
+} else {
+    System.out.println("Needs improvement");
+}</code></pre></div>
+<h3>switch statement</h3><div class="codebox"><div class="code-label">JAVA · SWITCH <button class="copy">Copy code</button></div><pre><code>int choice = 2;
+
+switch (choice) {
+    case 1:
+        System.out.println("Create");
+        break;
+    case 2:
+        System.out.println("Update");
+        break;
+    case 3:
+        System.out.println("Delete");
+        break;
+    default:
+        System.out.println("Invalid choice");
+}</code></pre></div>
+<ul><li><code>break</code> exits a traditional switch branch.</li><li>Without <code>break</code>, execution may fall through into the next case.</li><li><code>default</code> is optional and runs when no case matches.</li><li>Traditional switch supports primitive-compatible values, enums and Strings; it does not accept <code>long</code>, <code>float</code> or <code>double</code> as switch selectors.</li></ul>
+<div class="callout interview"><strong>QA example:</strong> A test may use conditional logic to verify outcomes: if the actual page title equals the expected title, report pass; otherwise report a failure with useful diagnostics. In real test frameworks, use assertions rather than relying only on <code>if</code> statements.</div>
+</div></section>
+
+<section class="section searchable" id="loops" data-search="loop for while do while enhanced for foreach break continue nested loop infinite loop"><div class="section-head"><div class="num">05</div><div><h2>Loops: for, while and do-while</h2><p>Loops repeat code. Choose the loop based on how the repetition is controlled.</p></div></div><div class="section-body">
+<div class="grid3"><div class="mini-card"><h4><code>for</code></h4><p>Best when the iteration count or range is known.</p><p class="small">Entry-controlled: checks condition first.</p></div><div class="mini-card"><h4><code>while</code></h4><p>Best when repetition continues until a condition changes.</p><p class="small">Entry-controlled: may run zero times.</p></div><div class="mini-card"><h4><code>do-while</code></h4><p>Best when the body must run once before checking.</p><p class="small">Exit-controlled: runs at least once.</p></div></div>
+<div class="codebox"><div class="code-label">JAVA · FOR LOOP <button class="copy">Copy code</button></div><pre><code>for (int i = 1; i &lt;= 5; i++) {
+    System.out.println(i);
+}</code></pre></div>
+<div class="codebox"><div class="code-label">JAVA · WHILE LOOP <button class="copy">Copy code</button></div><pre><code>int i = 1;
+while (i &lt;= 5) {
+    System.out.println(i);
+    i++;
+}</code></pre></div>
+<div class="codebox"><div class="code-label">JAVA · DO-WHILE LOOP <button class="copy">Copy code</button></div><pre><code>int i = 1;
+do {
+    System.out.println(i);
+    i++;
+} while (i &lt;= 5);</code></pre></div>
+<h3>Enhanced for loop (for-each)</h3><p>Useful when you want to visit every item in an array or collection and do not need the index.</p><div class="codebox"><div class="code-label">JAVA · FOR-EACH <button class="copy">Copy code</button></div><pre><code>int[] scores = {80, 90, 75};
+for (int score : scores) {
+    System.out.println(score);
+}</code></pre></div>
+<h3>break and continue</h3><ul><li><code>break</code> exits the nearest loop or switch.</li><li><code>continue</code> skips the rest of the current iteration and starts the next one.</li></ul>
+<div class="callout danger"><strong>Infinite-loop warning:</strong> Make sure the loop's condition can eventually become false. If you forget to update the loop variable, a <code>while</code> or <code>for</code> loop may never stop.</div>
+<div class="qa-box"><h4>How loops appear in Selenium</h4><p>You often use a loop to inspect all matching web elements, validate each table row, or run a test against several data values. Example: loop through a <code>List&lt;WebElement&gt;</code> returned by <code>findElements()</code>.</p></div>
+</div></section>
+
+<section class="section searchable" id="methods" data-search="method function udf user defined predefined method parameters arguments return void static instance overload varargs pass by value recursion"><div class="section-head"><div class="num">06</div><div><h2>Methods (functions)</h2><p>A method is a named block of code that performs a task and can be reused.</p></div></div><div class="section-body">
+<h3>Method structure</h3><div class="codebox"><div class="code-label">JAVA · METHOD TEMPLATE <button class="copy">Copy code</button></div><pre><code>accessModifier static returnType methodName(parameters) {
+    // statements
+    return value; // omit for void methods
+}</code></pre></div>
+<table><thead><tr><th>Term</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td>Method name</td><td>Action / behaviour name</td><td><code>calculateTotal</code></td></tr><tr><td>Parameter</td><td>Variable in the method definition</td><td><code>int price</code></td></tr><tr><td>Argument</td><td>Actual value passed at the call site</td><td><code>calculateTotal(100)</code></td></tr><tr><td>Return type</td><td>Type of result the method sends back</td><td><code>int</code>, <code>String</code>, <code>boolean</code></td></tr><tr><td><code>void</code></td><td>Method returns no value</td><td><code>void login()</code></td></tr></tbody></table>
+<h3>User-defined method example</h3><div class="codebox"><div class="code-label">JAVA · UDF WITH RETURN VALUE <button class="copy">Copy code</button></div><pre><code>public class Average {
+    static double average(int a, int b, int c) {
+        return (a + b + c) / 3.0;
+    }
+
+    public static void main(String[] args) {
+        double result = average(10, 20, 30);
+        System.out.println("Average = " + result);
+    }
+}</code></pre></div>
+<h3>Predefined methods</h3><p>Methods provided by Java APIs are often called built-in or library methods: <code>Math.max(4, 9)</code>, <code>name.length()</code>, <code>list.size()</code>, <code>System.out.println()</code>. “Predefined function” is a common classroom phrase; in Java, <strong>method</strong> is the usual term.</p>
+<h3>Static vs instance methods</h3><table><thead><tr><th>Static method</th><th>Instance method</th></tr></thead><tbody><tr><td>Belongs to the class; call with class name (usually).</td><td>Belongs to an object; call using an object reference.</td></tr><tr><td>Cannot directly use instance fields or <code>this</code>.</td><td>Can access instance and static members.</td></tr><tr><td>Example: <code>Math.max(2, 5)</code></td><td>Example: <code>driver.getTitle()</code></td></tr></tbody></table>
+<h3>Method overloading</h3><p>Same method name in the same class, but a different parameter list (number, types or order). It is resolved at compile time.</p><div class="codebox"><div class="code-label">JAVA · OVERLOADING <button class="copy">Copy code</button></div><pre><code>class Printer {
+    void print(String text) { System.out.println(text); }
+    void print(int number) { System.out.println(number); }
+    void print(String text, int times) {
+        for (int i = 0; i &lt; times; i++) System.out.println(text);
+    }
+}</code></pre></div>
+<div class="callout interview"><strong>Overloading trap:</strong> You cannot overload a method by changing only its return type. The parameter list must differ. Changing only parameter names also does not count.</div>
+<h3>Java is pass-by-value</h3><p>Java always passes arguments by value. For objects, the copied value is the reference, so a method can change the object's state through that reference, but it cannot replace the caller's original reference.</p>
+</div></section>
+
+<section class="section searchable" id="arrays" data-search="array one dimensional 1d two dimensional 2d matrix nested loop length index bounds array vs arraylist jagged"><div class="section-head"><div class="num">07</div><div><h2>Arrays: 1D and 2D</h2><p>An array stores a fixed number of values of one declared component type.</p></div></div><div class="section-body">
+<h3>One-dimensional array</h3><div class="codebox"><div class="code-label">JAVA · 1D ARRAY <button class="copy">Copy code</button></div><pre><code>int[] marks = {80, 90, 75, 88};
+
+System.out.println(marks.length); // 4
+System.out.println(marks[0]);     // 80
+
+for (int i = 0; i &lt; marks.length; i++) {
+    System.out.println(marks[i]);
+}</code></pre></div>
+<ul><li>Indexes start at <code>0</code>.</li><li>Last valid index is <code>array.length - 1</code>.</li><li><code>length</code> is a field, not a method: use <code>marks.length</code>, not <code>marks.length()</code>.</li><li>Reading an invalid index throws <code>ArrayIndexOutOfBoundsException</code>.</li><li>Array slots receive default values when created (for example, <code>0</code> for int and <code>null</code> for references).</li></ul>
+<h3>Two-dimensional array (matrix)</h3><p>A 2D array is an array whose elements are arrays. Think of it as rows and columns. Java also supports rows of different lengths (a jagged array).</p><div class="codebox"><div class="code-label">JAVA · 2D MATRIX WITH NESTED LOOPS <button class="copy">Copy code</button></div><pre><code>int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+for (int row = 0; row &lt; matrix.length; row++) {
+    for (int col = 0; col &lt; matrix[row].length; col++) {
+        System.out.print(matrix[row][col] + " ");
+    }
+    System.out.println();
+}</code></pre></div>
+<p><strong>Outer loop:</strong> moves through rows. <strong>Inner loop:</strong> moves through columns in the current row.</p>
+<h3>Matrix transpose</h3><p>Transpose swaps row and column positions: element at <code>matrix[row][col]</code> becomes <code>matrix[col][row]</code>. For a square matrix:</p><div class="codebox"><div class="code-label">JAVA · TRANSPOSE OUTPUT <button class="copy">Copy code</button></div><pre><code>for (int i = 0; i &lt; matrix.length; i++) {
+    for (int j = 0; j &lt; matrix[i].length; j++) {
+        System.out.print(matrix[j][i] + " ");
+    }
+    System.out.println();
+}</code></pre></div>
+<div class="callout warn"><strong>Important:</strong> The code above assumes a square matrix. For a rectangular matrix, create a result array with swapped dimensions and copy values using <code>transpose[col][row] = matrix[row][col]</code>.</div>
+<h3>Array vs ArrayList</h3><table><thead><tr><th>Array</th><th>ArrayList</th></tr></thead><tbody><tr><td>Fixed length after creation</td><td>Can grow or shrink</td></tr><tr><td>Can store primitives and references</td><td>Stores objects; use wrappers such as <code>Integer</code> for primitive values</td></tr><tr><td>Use <code>length</code></td><td>Use <code>size()</code></td></tr><tr><td>Language feature</td><td>Part of Collections Framework</td></tr></tbody></table>
+</div></section>
+
+<section class="section searchable" id="oops" data-search="oops object oriented programming class object four pillars inheritance polymorphism abstraction encapsulation class object"><div class="section-head"><div class="num">08</div><div><h2>OOP: the four pillars</h2><p>Object-oriented programming organizes code around objects that combine state and behaviour.</p></div></div><div class="section-body">
+<div class="grid2"><div class="mini-card"><h4>Class</h4><p>A blueprint or definition that describes fields and methods.</p></div><div class="mini-card"><h4>Object</h4><p>A runtime instance of a class, created with <code>new</code>.</p></div></div>
+<div class="codebox"><div class="code-label">JAVA · CLASS AND OBJECT <button class="copy">Copy code</button></div><pre><code>class Employee {
+    String name;              // state / field
+    void work() {             // behaviour / method
+        System.out.println(name + " is working");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Employee employee = new Employee(); // object
+        employee.name = "Ronak";
+        employee.work();
+    }
+}</code></pre></div>
+<h3>Four pillars overview</h3><div class="grid2"><div class="mini-card"><h4>1 · Inheritance</h4><p>Reuse and extend an existing class using <code>extends</code>.</p></div><div class="mini-card"><h4>2 · Polymorphism</h4><p>One interface or parent type can represent different implementations.</p></div><div class="mini-card"><h4>3 · Abstraction</h4><p>Expose essential behaviour while hiding implementation details.</p></div><div class="mini-card"><h4>4 · Encapsulation</h4><p>Bundle state and behaviour; control access to internal data.</p></div></div>
+<div class="callout interview"><strong>Interview checkpoint:</strong> Encapsulation is about controlled access to state. Abstraction is about exposing what an object does while hiding how it does it. They are related but not interchangeable.</div>
+<h3>Access modifiers</h3><table><thead><tr><th>Modifier</th><th>Same class</th><th>Same package</th><th>Subclass outside package</th><th>Anywhere</th></tr></thead><tbody><tr><td><code>private</code></td><td>Yes</td><td>No</td><td>No (directly)</td><td>No</td></tr><tr><td>default / package-private</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td><code>protected</code></td><td>Yes</td><td>Yes</td><td>Yes, through inheritance rules</td><td>No</td></tr><tr><td><code>public</code></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes, subject to module accessibility</td></tr></tbody></table>
+<div class="callout warn"><strong>Small detail:</strong> A top-level class can be <code>public</code> or package-private (no modifier). It cannot be declared <code>private</code> or <code>protected</code>.</div>
+</div></section>
+
+<section class="section searchable" id="inheritance" data-search="inheritance extends single multilevel hierarchical multiple hybrid super this parent child method constructor"><div class="section-head"><div class="num">09</div><div><h2>Inheritance</h2><p>Inheritance lets a child class reuse and specialize accessible members of a parent class.</p></div></div><div class="section-body">
+<div class="inline-flow"><div class="flow-box">Parent class A</div><span class="arrow">← extends</span><div class="flow-box">Child class B</div></div>
+<div class="codebox"><div class="code-label">JAVA · SINGLE INHERITANCE <button class="copy">Copy code</button></div><pre><code>class Parent {
+    int a = 10;
+    void display() {
+        System.out.println("Parent method");
+    }
+}
+
+class Child extends Parent {
+    void show() {
+        System.out.println(a); // inherited field
+        display();             // inherited method
+    }
+}</code></pre></div>
+<h3>Types of inheritance (class-based diagrams)</h3><table><thead><tr><th>Type</th><th>Structure</th><th>Java support</th></tr></thead><tbody><tr><td>Single</td><td>A → B</td><td>Yes</td></tr><tr><td>Multilevel</td><td>A → B → C</td><td>Yes</td></tr><tr><td>Hierarchical</td><td>A → B and A → C</td><td>Yes</td></tr><tr><td>Multiple</td><td>A + B → C</td><td>Not for classes; possible through multiple interfaces</td></tr><tr><td>Hybrid</td><td>Combination of inheritance patterns</td><td>Can be modelled using classes and interfaces</td></tr></tbody></table>
+<h3><code>this</code> vs <code>super</code></h3><table><thead><tr><th><code>this</code></th><th><code>super</code></th></tr></thead><tbody><tr><td>Refers to the current object.</td><td>Refers to the parent-class part of the current object.</td></tr><tr><td><code>this.field</code> resolves a field in the current object.</td><td><code>super.method()</code> calls the parent implementation.</td></tr><tr><td><code>this()</code> calls another constructor in the same class.</td><td><code>super()</code> calls a parent constructor.</td></tr></tbody></table>
+<div class="codebox"><div class="code-label">JAVA · SUPER METHOD CALL <button class="copy">Copy code</button></div><pre><code>class Parent {
+    void demo() { System.out.println("Parent"); }
+}
+
+class Child extends Parent {
+    @Override
+    void demo() {
+        super.demo();
+        System.out.println("Child");
+    }
+}</code></pre></div>
+<div class="callout interview"><strong>Interview details:</strong> Java classes support single inheritance only (one direct superclass). Constructors are not inherited. <code>private</code> members are not directly accessible in a subclass. Every class ultimately inherits from <code>Object</code>, except <code>Object</code> itself.</div>
+</div></section>
+
+<section class="section searchable" id="polymorphism" data-search="polymorphism compile time runtime method overloading overriding dynamic dispatch static method hiding covariant return"><div class="section-head"><div class="num">10</div><div><h2>Polymorphism: overloading vs overriding</h2><p>Poly = many; morphism = forms. The same method name or parent type can behave in different ways.</p></div></div><div class="section-body">
+<div class="grid2"><div class="mini-card"><h4>Compile-time · overloading</h4><p>Same method name, different parameter list. Compiler selects the matching overload.</p></div><div class="mini-card"><h4>Runtime · overriding</h4><p>Child provides a new implementation of an inherited instance method. Actual object type decides which implementation runs.</p></div></div>
+<h3>Method overloading</h3><div class="codebox"><div class="code-label">JAVA · OVERLOADING <button class="copy">Copy code</button></div><pre><code>class Calculator {
+    int add(int a, int b) { return a + b; }
+    int add(int a, int b, int c) { return a + b + c; }
+    double add(double a, double b) { return a + b; }
+}</code></pre></div>
+<h3>Method overriding and dynamic dispatch</h3><div class="codebox"><div class="code-label">JAVA · OVERRIDING <button class="copy">Copy code</button></div><pre><code>class Browser {
+    void open() { System.out.println("Open generic browser"); }
+}
+
+class ChromeBrowser extends Browser {
+    @Override
+    void open() { System.out.println("Open Chrome"); }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Browser browser = new ChromeBrowser();
+        browser.open(); // Open Chrome
+    }
+}</code></pre></div>
+<p>The reference type is <code>Browser</code>; the actual object type is <code>ChromeBrowser</code>. The overridden instance method selected at runtime is the child's method.</p>
+<h3>Overloading vs overriding: interview comparison</h3><table><thead><tr><th>Overloading</th><th>Overriding</th></tr></thead><tbody><tr><td>Usually in the same class (can also occur across inheritance).</td><td>Requires inheritance / subtype relationship.</td></tr><tr><td>Parameter list must differ.</td><td>Same method signature (name + parameter types).</td></tr><tr><td>Return type alone cannot distinguish overloads.</td><td>Return type must be same or covariant for reference types.</td></tr><tr><td>Compile-time selection.</td><td>Runtime dispatch for instance methods.</td></tr><tr><td>Static methods can be overloaded.</td><td>Static methods are hidden, not overridden.</td></tr></tbody></table>
+<div class="callout interview"><strong>More hidden rules:</strong> An overriding method cannot reduce visibility (for example, <code>public</code> to <code>protected</code>). It cannot declare broader checked exceptions than the parent method. Use <code>@Override</code> so the compiler catches signature mistakes. <code>final</code> methods cannot be overridden; <code>private</code> methods are not overridden.</div>
+</div></section>
+
+<section class="section searchable" id="abstraction" data-search="abstraction abstract class abstract method interface implementation hide details"><div class="section-head"><div class="num">11</div><div><h2>Abstraction: abstract classes</h2><p>Expose the required behaviour and hide the details of how it is performed.</p></div></div><div class="section-body">
+<p class="definition">An abstract class is a class that cannot be instantiated directly and may contain abstract methods (without a body) as well as concrete methods (with a body).</p>
+<div class="codebox"><div class="code-label">JAVA · ABSTRACT CLASS <button class="copy">Copy code</button></div><pre><code>abstract class Shape {
+    abstract double area(); // no method body
+
+    void describe() {
+        System.out.println("A shape has an area");
+    }
+}
+
+class Circle extends Shape {
+    double radius;
+    Circle(double radius) { this.radius = radius; }
+
+    @Override
+    double area() { return Math.PI * radius * radius; }
+}</code></pre></div>
+<h3>Abstract class facts</h3><ul><li>Cannot be instantiated directly: <code>new Shape()</code> is not allowed.</li><li>Can have constructors, fields, static methods and concrete methods.</li><li>Can have zero or more abstract methods; an abstract class does not have to contain one.</li><li>A concrete child must implement all inherited abstract methods, unless the child is also abstract.</li><li>An abstract method cannot be <code>private</code>, <code>static</code> or <code>final</code>.</li></ul>
+<div class="callout interview"><strong>Why use it?</strong> Use an abstract class when related classes share common state or implementation, but some behaviour must be specialized by each child class.</div>
+</div></section>
+
+<section class="section searchable" id="encapsulation" data-search="encapsulation private getter setter this data hiding validation access control"><div class="section-head"><div class="num">12</div><div><h2>Encapsulation: getters and setters</h2><p>Protect an object's internal state and provide controlled ways to read or update it.</p></div></div><div class="section-body">
+<div class="codebox"><div class="code-label">JAVA · ENCAPSULATION WITH VALIDATION <button class="copy">Copy code</button></div><pre><code>class Employee {
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age &gt;= 18) {
+            this.age = age;
+        } else {
+            throw new IllegalArgumentException("Age must be 18 or above");
+        }
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Employee employee = new Employee();
+        employee.setAge(30);
+        System.out.println(employee.getAge());
+    }
+}</code></pre></div>
+<ul><li><code>private</code> prevents direct access from outside the class.</li><li>Getter reads the value; setter updates it.</li><li>A setter can validate input before changing state.</li><li>Not every field needs both a getter and a setter. Read-only or immutable designs may expose only a getter or neither.</li></ul>
+<div class="callout interview"><strong>Hidden detail:</strong> <code>this.age = age;</code> means “assign the parameter <code>age</code> to this object's field <code>age</code>.” <code>this</code> resolves the name collision.</div>
+</div></section>
+
+<section class="section searchable" id="constructors" data-search="constructor default constructor no arg parameterized constructor overloading this super constructor chaining"><div class="section-head"><div class="num">13</div><div><h2>Constructors and object initialization</h2><p>A constructor initializes a new object when it is created.</p></div></div><div class="section-body">
+<h3>Constructor rules</h3><ul><li>Constructor name must match the class name.</li><li>A constructor has no return type—not even <code>void</code>.</li><li>It runs when an object is created with <code>new</code>.</li><li>Constructors can be overloaded with different parameter lists.</li><li>Constructors are not inherited and cannot be overridden.</li><li>If you declare no constructor, the compiler may provide a no-argument default constructor. If you declare any constructor, that automatic default constructor is not supplied.</li></ul>
+<div class="codebox"><div class="code-label">JAVA · CONSTRUCTOR OVERLOADING <button class="copy">Copy code</button></div><pre><code>class User {
+    String name;
+    int age;
+
+    User() {
+        this("Guest", 0); // call another constructor in this class
+    }
+
+    User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        User first = new User();
+        User second = new User("Ronak", 30);
+    }
+}</code></pre></div>
+<div class="callout warn"><strong>Constructor chaining rule:</strong> A call to <code>this(...)</code> or <code>super(...)</code> must be the first statement in a constructor. If neither is written, Java inserts an implicit no-argument <code>super()</code> when possible.</div>
+<h3>Constructor vs method</h3><table><thead><tr><th>Constructor</th><th>Method</th></tr></thead><tbody><tr><td>Same name as class</td><td>Can have any valid method name</td></tr><tr><td>No return type</td><td>Must declare a return type, including <code>void</code></td></tr><tr><td>Runs during object creation</td><td>Called explicitly / through program logic</td></tr><tr><td>Cannot be inherited or overridden</td><td>Can be inherited and overridden subject to rules</td></tr></tbody></table>
+</div></section>
+
+<section class="section searchable" id="interfaces" data-search="interface implements extends abstraction multiple inheritance default static private method constants class vs interface functional interface"><div class="section-head"><div class="num">14</div><div><h2>Interfaces: contracts and multiple inheritance of type</h2><p>An interface defines a contract that implementing classes agree to provide.</p></div></div><div class="section-body">
+<p class="definition">Use an interface to specify what an object can do, without tying the caller to one concrete implementation.</p>
+<div class="codebox"><div class="code-label">JAVA · INTERFACE AND IMPLEMENTATION <button class="copy">Copy code</button></div><pre><code>interface LoginActions {
+    void login(String username, String password);
+}
+
+class WebLogin implements LoginActions {
+    @Override
+    public void login(String username, String password) {
+        System.out.println("Logging in through web UI");
+    }
+}
+
+class ApiLogin implements LoginActions {
+    @Override
+    public void login(String username, String password) {
+        System.out.println("Logging in through API");
+    }
+}</code></pre></div>
+<h3>Why do we use interfaces?</h3><ul><li>To define a common contract for different implementations.</li><li>To achieve abstraction and loose coupling.</li><li>To allow a class to implement multiple interfaces.</li><li>To make code easier to extend, mock and test.</li></ul>
+<h3>Interface rules (modern Java)</h3><ul><li>Declared with the <code>interface</code> keyword.</li><li>A class uses <code>implements</code>; an interface can <code>extend</code> one or more interfaces.</li><li>Fields are implicitly <code>public static final</code> constants.</li><li>Traditional abstract interface methods are implicitly <code>public abstract</code>.</li><li>Interfaces cannot be instantiated and do not have constructors.</li><li>Modern interfaces may also contain <code>default</code> and <code>static</code> methods with bodies, plus <code>private</code> helper methods.</li><li>A concrete implementing class must implement all inherited abstract methods, unless it is abstract.</li></ul>
+<h3>Class vs interface — common interview question</h3><table><thead><tr><th>Class</th><th>Interface</th></tr></thead><tbody><tr><td>Defines an object's state and behaviour; can be instantiated if concrete.</td><td>Defines a contract/capability; cannot be instantiated directly.</td></tr><tr><td>Can have instance fields and constructors.</td><td>Cannot have constructors; fields are constants (<code>public static final</code>).</td></tr><tr><td>Can contain concrete and abstract methods.</td><td>Can contain abstract, default, static and private methods (modern Java).</td></tr><tr><td>A class can extend only one class.</td><td>A class can implement multiple interfaces.</td></tr><tr><td>Use <code>extends</code> to inherit a class.</td><td>Use <code>implements</code> from a class; interface can extend interfaces.</td></tr><tr><td>Good for shared state and common implementation.</td><td>Good for a contract and interchangeable implementations.</td></tr></tbody></table>
+<div class="callout interview"><strong>Important correction / nuance:</strong> “Interface has only abstract methods” is an outdated simplification. Since Java 8, interfaces can have default and static methods; since Java 9, they can also have private methods. Interface fields are constants, not instance variables.</div>
+<h3>Multiple interfaces</h3><div class="codebox"><div class="code-label">JAVA · IMPLEMENTING TWO INTERFACES <button class="copy">Copy code</button></div><pre><code>interface ScreenshotCapable {
+    void takeScreenshot();
+}
+
+interface Navigable {
+    void open(String url);
+}
+
+class TestBrowser implements ScreenshotCapable, Navigable {
+    public void takeScreenshot() { System.out.println("Screenshot saved"); }
+    public void open(String url) { System.out.println("Opening " + url); }
+}</code></pre></div>
+</div></section>
+
+<section class="section searchable" id="strings" data-search="string methods immutable equals equalsIgnoreCase == string pool concat substring contains charAt length trim strip split replace StringBuilder"><div class="section-head"><div class="num">15</div><div><h2>Strings and common String methods</h2><p>A String represents text. Java Strings are immutable: their contents cannot be changed after creation.</p></div></div><div class="section-body">
+<div class="codebox"><div class="code-label">JAVA · COMMON STRING METHODS <button class="copy">Copy code</button></div><pre><code>String text = "Hello Java";
+
+System.out.println(text.length());             // 10
+System.out.println(text.charAt(0));             // H
+System.out.println(text.toUpperCase());         // HELLO JAVA
+System.out.println(text.toLowerCase());         // hello java
+System.out.println(text.contains("Java"));     // true
+System.out.println(text.substring(6));         // Java
+System.out.println(text.replace("Java", "QA")); // Hello QA
+System.out.println(text.concat(" Selenium"));  // Hello Java Selenium
+System.out.println(text.equals("Hello Java")); // true</code></pre></div>
+<table><thead><tr><th>Method</th><th>What it does</th><th>Small detail</th></tr></thead><tbody><tr><td><code>length()</code></td><td>Returns number of UTF-16 code units</td><td>String method; unlike array <code>length</code> field.</td></tr><tr><td><code>charAt(i)</code></td><td>Returns character at index</td><td>First index is 0.</td></tr><tr><td><code>equals()</code></td><td>Compares content</td><td>Case-sensitive.</td></tr><tr><td><code>equalsIgnoreCase()</code></td><td>Compares content ignoring case</td><td>Useful for case-insensitive text comparison.</td></tr><tr><td><code>contains()</code></td><td>Checks for a substring</td><td>Returns boolean.</td></tr><tr><td><code>substring()</code></td><td>Extracts a portion</td><td>End index is exclusive.</td></tr><tr><td><code>trim()</code> / <code>strip()</code></td><td>Removes surrounding whitespace</td><td><code>strip()</code> uses Unicode whitespace rules (Java 11+).</td></tr><tr><td><code>split()</code></td><td>Splits using a regular expression</td><td>Special regex characters must be escaped.</td></tr><tr><td><code>replace()</code></td><td>Replaces literal character sequences / chars</td><td>Returns a new String.</td></tr></tbody></table>
+<h3><code>==</code> vs <code>equals()</code></h3><div class="codebox"><div class="code-label">JAVA · STRING COMPARISON <button class="copy">Copy code</button></div><pre><code>String s1 = new String("Java");
+String s2 = new String("Java");
+
+System.out.println(s1 == s2);      // false: different object references
+System.out.println(s1.equals(s2)); // true: same text content</code></pre></div>
+<p><code>==</code> checks whether two reference variables refer to the same object. <code>equals()</code> checks logical content when implemented by the class (String does so).</p>
+<h3>Why String is immutable</h3><ul><li>Once created, its value cannot be changed; operations return a new String.</li><li>Immutability helps safe sharing, predictable behaviour and String-pool reuse.</li><li>Use <code>StringBuilder</code> for repeated modifications in a loop when performance matters.</li></ul>
+<div class="codebox"><div class="code-label">JAVA · STRINGBUILDER <button class="copy">Copy code</button></div><pre><code>StringBuilder result = new StringBuilder();
+result.append("Selenium");
+result.append(" ");
+result.append("Java");
+System.out.println(result.toString());</code></pre></div>
+<div class="qa-box"><h4>QA / Selenium connection</h4><p>String methods are used for title checks, text validation, trimming input, building URLs, comparing expected and actual messages, and checking whether an error message contains expected text.</p></div>
+</div></section>
+
+<section class="section searchable" id="exceptions" data-search="exception handling try catch finally throw throws checked unchecked runtime arithmetic nullpointer arrayindexoutofbounds ioexception selenium stale element nosuchelement"><div class="section-head"><div class="num">16</div><div><h2>Exception handling</h2><p>Exceptions represent conditions that interrupt the normal flow of a program.</p></div></div><div class="section-body">
+<h3>Basic try-catch-finally</h3><div class="codebox"><div class="code-label">JAVA · HANDLE DIVISION BY ZERO <button class="copy">Copy code</button></div><pre><code>public class ExceptionDemo {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+
+        try {
+            int result = a / b;
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero: " + e.getMessage());
+        } finally {
+            System.out.println("This block normally runs whether an exception occurs or not");
+        }
+    }
+}</code></pre></div>
+<h3>Five keywords</h3><table><thead><tr><th>Keyword</th><th>Purpose</th></tr></thead><tbody><tr><td><code>try</code></td><td>Wraps code that may throw an exception.</td></tr><tr><td><code>catch</code></td><td>Handles a matching exception type.</td></tr><tr><td><code>finally</code></td><td>Runs after try/catch in normal control flow; often used for cleanup.</td></tr><tr><td><code>throw</code></td><td>Explicitly throws one exception object.</td></tr><tr><td><code>throws</code></td><td>Declares exceptions a method may pass to its caller.</td></tr></tbody></table>
+<h3>Checked vs unchecked exceptions</h3><table><thead><tr><th>Checked</th><th>Unchecked</th></tr></thead><tbody><tr><td>Compiler requires handling or declaration (except certain special cases).</td><td>Not required to be caught or declared.</td></tr><tr><td>Examples: <code>IOException</code>, <code>SQLException</code>.</td><td>Examples: <code>ArithmeticException</code>, <code>NullPointerException</code>, <code>ArrayIndexOutOfBoundsException</code>.</td></tr><tr><td>Often represent recoverable external conditions.</td><td>Often indicate invalid state or programming mistakes.</td></tr></tbody></table>
+<h3>Common exceptions to recognize</h3><ul><li><code>ArithmeticException</code> — integer division by zero.</li><li><code>NullPointerException</code> — using a null reference as though it referred to an object.</li><li><code>ArrayIndexOutOfBoundsException</code> — invalid array index.</li><li><code>NumberFormatException</code> — parsing invalid numeric text.</li><li><code>ClassCastException</code> — invalid runtime cast.</li><li><code>NoSuchElementException</code> — attempting to read a missing element from some APIs.</li></ul>
+<div class="callout warn"><strong>Correction to remember from the class screenshot:</strong> Division by zero for integers throws <code>ArithmeticException</code>, not <code>IOException</code>. An array index outside the valid range throws <code>ArrayIndexOutOfBoundsException</code>.</div>
+<h3>throw vs throws</h3><div class="codebox"><div class="code-label">JAVA · THROW AND THROWS <button class="copy">Copy code</button></div><pre><code>static void validateAge(int age) {
+    if (age &lt; 18) {
+        throw new IllegalArgumentException("Age must be 18 or above");
+    }
+}
+
+static void readFile() throws IOException {
+    // code that may produce an IOException
+}</code></pre></div>
+<h3>Selenium exceptions you may encounter</h3><table><thead><tr><th>Exception</th><th>Typical reason</th><th>What to investigate</th></tr></thead><tbody><tr><td><code>NoSuchElementException</code></td><td>Locator did not find an element.</td><td>Locator, page state, frame, timing.</td></tr><tr><td><code>TimeoutException</code></td><td>Wait condition was not met in time.</td><td>Expected condition, locator, network/page behaviour.</td></tr><tr><td><code>StaleElementReferenceException</code></td><td>DOM changed and old element reference is no longer valid.</td><td>Re-locate the element after the update.</td></tr><tr><td><code>ElementClickInterceptedException</code></td><td>Another element overlays or intercepts the click.</td><td>Overlay, animation, scrolling, wait condition.</td></tr><tr><td><code>ElementNotInteractableException</code></td><td>Element exists but cannot currently be interacted with.</td><td>Visibility, enabled state, correct target element.</td></tr></tbody></table>
+<div class="callout interview"><strong>Good automation practice:</strong> Do not catch every exception and simply print it. Catch the specific exception you can handle, preserve useful failure details, and let unexpected failures fail the test. Avoid using Thread.sleep as the default fix for timing issues.</div>
+</div></section>
+
+<section class="section searchable" id="collections" data-search="collection framework arraylist list set vector hashmap map queue linkedlist hashset treeset linkedhashset generics add put size clear get contains remove iteration iterator order duplicate null synchronization"><div class="section-head"><div class="num">17</div><div><h2>Java Collections Framework</h2><p>Collections provide flexible data structures for grouping and working with objects.</p></div></div><div class="section-body">
+<p class="definition">Use an array when the size is fixed and simple indexed storage is enough. Use a collection when you need flexible size and operations such as add, remove, search or iteration.</p>
+<h3>Core hierarchy — simplified</h3><div class="inline-flow"><div class="flow-box">Iterable</div><span class="arrow">→</span><div class="flow-box">Collection</div><span class="arrow">→</span><div class="flow-box">List · Set · Queue</div></div><div class="inline-flow"><div class="flow-box">Map</div><span class="arrow">→</span><div class="flow-box">HashMap · LinkedHashMap · TreeMap</div></div>
+<div class="callout warn"><strong>Crucial distinction:</strong> <code>Map</code> is part of the Collections Framework but is not a subtype of the <code>Collection</code> interface. Also, <code>Collection</code> (singular) is an interface, while <code>Collections</code> (plural) is a utility class with methods such as sorting and reversing.</div>
+<h3>List, Set and Map</h3><table><thead><tr><th>Type</th><th>Duplicates</th><th>Ordering</th><th>Typical implementation</th><th>Best use</th></tr></thead><tbody><tr><td><strong>List</strong></td><td>Allowed</td><td>Maintains positional order</td><td><code>ArrayList</code>, <code>LinkedList</code>, <code>Vector</code></td><td>Ordered test data, element lists.</td></tr><tr><td><strong>Set</strong></td><td>Not allowed</td><td>Depends on implementation</td><td><code>HashSet</code>, <code>LinkedHashSet</code>, <code>TreeSet</code></td><td>Unique values, unique window handles.</td></tr><tr><td><strong>Map</strong></td><td>Keys unique; values may repeat</td><td>Depends on implementation</td><td><code>HashMap</code>, <code>LinkedHashMap</code>, <code>TreeMap</code></td><td>Key-value test data, configuration.</td></tr></tbody></table>
+<h3>ArrayList</h3><p>Resizable array implementation of <code>List</code>. Allows duplicates and preserves insertion order. It is not synchronized by default.</p><div class="codebox"><div class="code-label">JAVA · ARRAYLIST WITH GENERICS <button class="copy">Copy code</button></div><pre><code>import java.util.ArrayList;
+import java.util.List;
+
+List&lt;String&gt; browsers = new ArrayList&lt;&gt;();
+browsers.add("Chrome");
+browsers.add("Firefox");
+browsers.add("Chrome");
+
+System.out.println(browsers);          // [Chrome, Firefox, Chrome]
+System.out.println(browsers.get(0));   // Chrome
+System.out.println(browsers.size());   // 3
+System.out.println(browsers.contains("Firefox")); // true
+browsers.remove("Firefox");
+browsers.clear();</code></pre></div>
+<h3>Set</h3><div class="codebox"><div class="code-label">JAVA · HASHSET REMOVES DUPLICATES <button class="copy">Copy code</button></div><pre><code>import java.util.HashSet;
+import java.util.Set;
+
+Set&lt;String&gt; browsers = new HashSet&lt;&gt;();
+browsers.add("Chrome");
+browsers.add("Firefox");
+browsers.add("Chrome");
+
+System.out.println(browsers); // unique values; order is not guaranteed</code></pre></div>
+<h3>Vector</h3><p><code>Vector</code> is a growable array similar to <code>ArrayList</code>, but its individual methods are synchronized. It is a legacy class; modern code generally uses <code>ArrayList</code> unless a specific synchronization need exists.</p>
+<h3>HashMap</h3><div class="codebox"><div class="code-label">JAVA · HASHMAP <button class="copy">Copy code</button></div><pre><code>import java.util.HashMap;
+import java.util.Map;
+
+Map&lt;String, String&gt; credentials = new HashMap&lt;&gt;();
+credentials.put("username", "qa_user");
+credentials.put("environment", "QA");
+credentials.put("browser", "Chrome");
+
+System.out.println(credentials.get("browser")); // Chrome
+System.out.println(credentials.containsKey("username")); // true
+credentials.put("browser", "Firefox"); // same key: replaces old value
+credentials.remove("environment");</code></pre></div>
+<h3>Common implementation differences</h3><table><thead><tr><th>Implementation</th><th>Order / behaviour</th><th>Important note</th></tr></thead><tbody><tr><td><code>ArrayList</code></td><td>Insertion order; duplicates allowed</td><td>Fast indexed access; middle insertion/removal may shift items.</td></tr><tr><td><code>LinkedList</code></td><td>Insertion order; duplicates allowed</td><td>Implements List and Deque; useful for operations at ends.</td></tr><tr><td><code>HashSet</code></td><td>No guaranteed iteration order</td><td>Unique elements; uses hash-based lookup.</td></tr><tr><td><code>LinkedHashSet</code></td><td>Insertion order</td><td>Unique elements with predictable iteration order.</td></tr><tr><td><code>TreeSet</code></td><td>Sorted order</td><td>Unique elements; elements need a natural order or comparator.</td></tr><tr><td><code>HashMap</code></td><td>No guaranteed iteration order</td><td>Unique keys; allows one null key and multiple null values.</td></tr><tr><td><code>LinkedHashMap</code></td><td>Normally insertion order</td><td>Useful when predictable map iteration order matters.</td></tr><tr><td><code>TreeMap</code></td><td>Sorted by key</td><td>Keys must be mutually comparable or use a comparator.</td></tr><tr><td><code>Vector</code></td><td>Insertion order</td><td>Legacy synchronized List implementation.</td></tr></tbody></table>
+<h3>Generics: why write <code>List&lt;String&gt;</code>?</h3><p>Generics provide compile-time type safety. They tell Java what type of object the collection should contain and reduce unsafe casts.</p><div class="codebox"><div class="code-label">JAVA · GENERIC TYPE SAFETY <button class="copy">Copy code</button></div><pre><code>List&lt;String&gt; names = new ArrayList&lt;&gt;();
+names.add("Ronak");
+// names.add(100); // Compile-time error: Integer is not a String
+
+String firstName = names.get(0); // no explicit cast needed</code></pre></div>
+<h3>Iteration: for-each and Iterator</h3><div class="codebox"><div class="code-label">JAVA · ITERATING A COLLECTION <button class="copy">Copy code</button></div><pre><code>for (String browser : browsers) {
+    System.out.println(browser);
+}
+
+// Iterator is useful when removing elements during iteration
+Iterator&lt;String&gt; iterator = browsers.iterator();
+while (iterator.hasNext()) {
+    String browser = iterator.next();
+    if (browser.equals("Firefox")) {
+        iterator.remove();
+    }
+}</code></pre></div>
+<div class="callout interview"><strong>Commonly skipped interview points:</strong> A List is ordered and allows duplicates. A Set enforces uniqueness. A Map stores key-value pairs and keys are unique. HashMap does not promise order. Vector is synchronized; ArrayList is not. Generics use wrapper/reference types, not primitives (<code>List&lt;int&gt;</code> is invalid; use <code>List&lt;Integer&gt;</code>).</div>
+</div></section>
+
+<section class="section searchable" id="selenium" data-search="selenium qa automation webdriver interface chromedriver webelement by findelements list windows handles set hashmap wait webdriverwait expectedconditions page object model pom test data"><div class="section-head"><div class="num">18</div><div><h2>How these Java concepts appear in Selenium</h2><p>Connect the classroom topics to real browser automation code.</p></div></div><div class="section-body">
+<div class="top-callout"><strong>This is the most important bridge for your career goal:</strong> Selenium's Java API is designed around interfaces, objects, methods, exceptions and collections. You are not learning Java in isolation—you are learning the language used to build your automation framework.</div>
+<h3>1 · Interface and implementation: WebDriver</h3><div class="codebox"><div class="code-label">SELENIUM · WEBDRIVER INTERFACE <button class="copy">Copy code</button></div><pre><code>import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+WebDriver driver = new ChromeDriver();
+driver.get("https://example.com");
+System.out.println(driver.getTitle());
+driver.quit();</code></pre></div><p><code>WebDriver</code> is an interface. <code>ChromeDriver</code> is a concrete implementation. This is programming to an interface: your variable uses the common contract, while the object is a particular browser driver.</p>
+<h3>2 · Find one element vs many elements</h3><div class="codebox"><div class="code-label">SELENIUM · WEB ELEMENTS AND LIST <button class="copy">Copy code</button></div><pre><code>WebElement loginButton = driver.findElement(By.id("login"));
+loginButton.click();
+
+List&lt;WebElement&gt; links = driver.findElements(By.tagName("a"));
+for (WebElement link : links) {
+    System.out.println(link.getText());
+}</code></pre></div><p><code>findElement()</code> returns one <code>WebElement</code> and throws <code>NoSuchElementException</code> if none is found. <code>findElements()</code> returns a <code>List&lt;WebElement&gt;</code>; if none match, it returns an empty list.</p>
+<h3>3 · Set for browser window handles</h3><div class="codebox"><div class="code-label">SELENIUM · WINDOW HANDLES <button class="copy">Copy code</button></div><pre><code>Set&lt;String&gt; windowHandles = driver.getWindowHandles();
+
+for (String handle : windowHandles) {
+    driver.switchTo().window(handle);
+    System.out.println(driver.getTitle());
+}</code></pre></div><p>Window handles are unique identifiers, so Selenium exposes them as a <code>Set&lt;String&gt;</code>.</p>
+<h3>4 · Map for test data</h3><div class="codebox"><div class="code-label">JAVA · TEST DATA MAP <button class="copy">Copy code</button></div><pre><code>Map&lt;String, String&gt; testData = new HashMap&lt;&gt;();
+testData.put("username", "standard_user");
+testData.put("password", "secret");
+testData.put("expectedTitle", "Products");
+
+String username = testData.get("username");</code></pre></div>
+<h3>5 · Methods and Page Object Model (POM)</h3><div class="codebox"><div class="code-label">SELENIUM · SIMPLE PAGE OBJECT IDEA <button class="copy">Copy code</button></div><pre><code>public class LoginPage {
+    private WebDriver driver;
+    private By username = By.id("user-name");
+    private By password = By.id("password");
+    private By loginButton = By.id("login-button");
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void login(String user, String pass) {
+        driver.findElement(username).sendKeys(user);
+        driver.findElement(password).sendKeys(pass);
+        driver.findElement(loginButton).click();
+    }
+}</code></pre></div><p>Java concepts in this class: class/object, private fields (encapsulation), constructor, method parameters, return type <code>void</code>, and Selenium API objects.</p>
+<h3>6 · Waits and exception awareness</h3><div class="codebox"><div class="code-label">SELENIUM 4 · EXPLICIT WAIT EXAMPLE <button class="copy">Copy code</button></div><pre><code>WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement loginButton = wait.until(
+    ExpectedConditions.elementToBeClickable(By.id("login-button"))
+);
+loginButton.click();</code></pre></div><p>An explicit wait waits for a specific condition instead of pausing for an arbitrary fixed time. It uses Java objects, constructors, methods, a lambda-capable API internally, and Selenium exceptions such as <code>TimeoutException</code>.</p>
+<div class="qa-box"><h4>Map each Java concept to QA automation</h4><table><thead><tr><th>Java concept</th><th>Where it helps in Selenium</th></tr></thead><tbody><tr><td>Variables / data types</td><td>Store URLs, expected titles, counts, flags and test data.</td></tr><tr><td>Methods</td><td>Create reusable actions such as <code>login()</code>, <code>searchProduct()</code>, <code>logout()</code>.</td></tr><tr><td>Arrays / Lists</td><td>Store test inputs, web elements, menu items and expected results.</td></tr><tr><td>Loops</td><td>Validate lists, tables, links and multiple test values.</td></tr><tr><td>OOP / encapsulation</td><td>Build maintainable Page Object classes with private locators and public actions.</td></tr><tr><td>Interfaces</td><td>Use <code>WebDriver</code> and other API abstractions.</td></tr><tr><td>Polymorphism</td><td>Use a common <code>WebDriver</code> reference for Chrome, Firefox or Edge driver objects.</td></tr><tr><td>Collections</td><td>Handle <code>List&lt;WebElement&gt;</code>, window-handle sets and test-data maps.</td></tr><tr><td>Exceptions</td><td>Understand locator, wait and interaction failures; report actionable errors.</td></tr><tr><td>Strings</td><td>Validate titles, labels, notifications and displayed text.</td></tr></tbody></table></div>
+<div class="callout warn"><strong>Code note:</strong> Selenium snippets show the core API usage. A real project also needs the Selenium dependency, browser driver/browser setup, imports and test lifecycle. In Selenium 4, driver management may be handled by Selenium Manager when the environment supports it.</div>
+</div></section>
+
+<section class="section searchable" id="interview" data-search="interview questions answers class interface arraylist linkedlist vector hashmap list set map string equals hashcode static final abstract checked unchecked overriding overloading constructor"><div class="section-head"><div class="num">19</div><div><h2>Interview checkpoint bank: small details people skip</h2><p>Use these as quick oral revision. Try answering before opening each answer.</p></div></div><div class="section-body">
+<details><summary>1. What is the difference between JDK, JRE and JVM?</summary><p>JDK provides development tools; JRE is the traditional runtime package concept; JVM executes bytecode. The JDK includes the components needed to develop and run Java applications.</p></details>
+<details><summary>2. Is Java pass-by-reference or pass-by-value?</summary><p>Java is always pass-by-value. For objects, the value copied is the object reference.</p></details>
+<details><summary>3. What are the eight primitive types?</summary><p><code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>boolean</code>.</p></details>
+<details><summary>4. What is the difference between local, instance and static variables?</summary><p>Local variables belong to a block/method; instance variables belong to each object; static variables belong to the class and are shared.</p></details>
+<details><summary>5. Do local variables get default values?</summary><p>No. Local variables must be definitely assigned before use. Fields (instance/static) receive default values.</p></details>
+<details><summary>6. What is the difference between == and equals()?</summary><p>For primitives, <code>==</code> compares values. For references, <code>==</code> compares identity. <code>equals()</code> checks logical equality when the class implements it appropriately.</p></details>
+<details><summary>7. Why is String immutable?</summary><p>Its content cannot be changed after creation. This supports safe sharing, predictable behaviour and String-pool reuse. Modifying operations return new strings.</p></details>
+<details><summary>8. Difference between String, StringBuilder and StringBuffer?</summary><p><code>String</code> is immutable. <code>StringBuilder</code> is mutable and not synchronized. <code>StringBuffer</code> is mutable and its methods are synchronized.</p></details>
+<details><summary>9. Difference between array length, String length() and List size()?</summary><p>Array uses a field <code>length</code>; String uses method <code>length()</code>; collections use method <code>size()</code>.</p></details>
+<details><summary>10. Difference between method overloading and overriding?</summary><p>Overloading changes the parameter list and is resolved at compile time. Overriding replaces an inherited instance method implementation and uses runtime dispatch.</p></details>
+<details><summary>11. Can a method be overloaded by changing only return type?</summary><p>No. The parameter list must differ; return type alone is not enough.</p></details>
+<details><summary>12. Can static methods be overridden?</summary><p>No. Static methods are hidden, not overridden, because they are associated with the class rather than dynamically dispatched on an instance.</p></details>
+<details><summary>13. Can constructors be overloaded or overridden?</summary><p>Constructors can be overloaded. They are not inherited, so they cannot be overridden.</p></details>
+<details><summary>14. What is the difference between this and super?</summary><p><code>this</code> refers to the current object; <code>super</code> accesses parent-class members or calls a parent constructor.</p></details>
+<details><summary>15. Abstract class vs interface?</summary><p>An abstract class can hold instance state, constructors and shared implementation. An interface defines a contract, supports multiple implementation, has no constructors and its fields are constants. Modern interfaces can also contain default, static and private methods.</p></details>
+<details><summary>16. Why can Java not extend two classes?</summary><p>Java avoids the ambiguity of inheriting state/implementation from multiple classes. A class can implement multiple interfaces to inherit multiple contracts.</p></details>
+<details><summary>17. Difference between List, Set and Map?</summary><p>List is ordered and allows duplicates; Set stores unique elements; Map stores key-value pairs with unique keys. Map is not a subtype of Collection.</p></details>
+<details><summary>18. ArrayList vs Vector?</summary><p>Both are resizable arrays and preserve insertion order. Vector's methods are synchronized; ArrayList is not. ArrayList is generally preferred for new single-threaded use.</p></details>
+<details><summary>19. HashMap vs HashSet?</summary><p>HashMap stores key-value pairs. HashSet stores unique elements and is backed internally by a HashMap implementation.</p></details>
+<details><summary>20. What is the difference between add() and put()?</summary><p><code>add()</code> adds an element to a Collection/List; <code>put()</code> adds or updates a key-value mapping in a Map.</p></details>
+<details><summary>21. Can ArrayList store int directly?</summary><p>No. Generics require reference types. Use <code>ArrayList&lt;Integer&gt;</code>; autoboxing converts between <code>int</code> and <code>Integer</code>.</p></details>
+<details><summary>22. Checked vs unchecked exception?</summary><p>Checked exceptions must be caught or declared (for example IOException). Unchecked exceptions are RuntimeException subclasses and do not have that compile-time requirement.</p></details>
+<details><summary>23. Difference between throw and throws?</summary><p><code>throw</code> explicitly throws an exception object. <code>throws</code> declares possible exceptions in a method signature.</p></details>
+<details><summary>24. Does finally always run?</summary><p>It normally runs when control leaves try/catch, but not in every conceivable situation (for example, abrupt JVM termination). It is commonly used for cleanup; try-with-resources is preferred for closeable resources.</p></details>
+<details><summary>25. findElement() vs findElements()?</summary><p><code>findElement()</code> returns one WebElement or throws NoSuchElementException. <code>findElements()</code> returns a List of matches, or an empty List when none match.</p></details>
+<details><summary>26. Why declare WebDriver instead of ChromeDriver?</summary><p>Using the WebDriver interface reduces dependency on a specific browser implementation and makes browser choice easier to change.</p></details>
+<details><summary>27. Why use explicit waits in Selenium?</summary><p>They wait for a specific condition, making tests more reliable with dynamic pages. Fixed sleeps pause regardless of whether the page is ready.</p></details>
+<details><summary>28. What is the difference between Collection and Collections?</summary><p><code>Collection</code> is a root interface for groups of elements. <code>Collections</code> is a utility class containing static helper methods such as <code>sort()</code> and <code>reverse()</code>.</p></details>
+<details><summary>29. What is the difference between final, finally and finalize?</summary><p><code>final</code> is a keyword for constants/restricted inheritance/overriding; <code>finally</code> is an exception-handling block; <code>finalize()</code> is a deprecated legacy cleanup hook and should not be used.</p></details>
+<details><summary>30. What happens when a HashMap receives the same key again?</summary><p>The old value associated with that key is replaced by the new value; the map does not gain another entry for that same key.</p></details>
+</div></section>
+
+<section class="section searchable" id="practice" data-search="practice roadmap assignment exercise coding revision checklist quiz test your knowledge"><div class="section-head"><div class="num">20</div><div><h2>Practice roadmap and quick self-test</h2><p>Use the checklist to track what you can write and explain without notes.</p></div></div><div class="section-body">
+<h3>Revision checklist</h3><div class="check-list" id="revisionChecklist">
+<label class="check-item"><input type="checkbox" /> I can explain JDK, JRE and JVM.</label><label class="check-item"><input type="checkbox" /> I can declare all 8 primitive types and explain wrappers.</label><label class="check-item"><input type="checkbox" /> I can explain local, instance and static variables.</label><label class="check-item"><input type="checkbox" /> I understand integer division, casting and operators.</label><label class="check-item"><input type="checkbox" /> I can write if-else and switch programs.</label><label class="check-item"><input type="checkbox" /> I can write for, while, do-while and for-each loops.</label><label class="check-item"><input type="checkbox" /> I can write a method with parameters and a return value.</label><label class="check-item"><input type="checkbox" /> I can work with 1D arrays and 2D matrices.</label><label class="check-item"><input type="checkbox" /> I can explain the four OOP pillars.</label><label class="check-item"><input type="checkbox" /> I can distinguish overloading from overriding.</label><label class="check-item"><input type="checkbox" /> I can explain class vs interface and abstract class.</label><label class="check-item"><input type="checkbox" /> I can use getters, setters and constructors.</label><label class="check-item"><input type="checkbox" /> I can use common String methods and compare strings correctly.</label><label class="check-item"><input type="checkbox" /> I can explain checked and unchecked exceptions.</label><label class="check-item"><input type="checkbox" /> I can use ArrayList, Set and HashMap with generics.</label><label class="check-item"><input type="checkbox" /> I can explain how WebDriver uses an interface.</label>
+</div>
+<h3>Interactive knowledge check</h3>
+<div class="quiz" data-answer="2"><h4>1. Which statement about Java local variables is correct?</h4><button>They automatically receive a default value.</button><button>They are shared by all objects.</button><button>They must be assigned before they are read.</button><button>They must always be static.</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="1"><h4>2. Which collection stores unique elements?</h4><button>ArrayList</button><button>Set</button><button>Vector</button><button>Map values</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="3"><h4>3. What does <code>findElements()</code> return when no element matches?</h4><button>Null</button><button>NoSuchElementException</button><button>A single WebElement</button><button>An empty List</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="0"><h4>4. Which is true about method overloading?</h4><button>The parameter list must differ.</button><button>Only the return type must differ.</button><button>It always requires inheritance.</button><button>It is selected only at runtime.</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="2"><h4>5. Why can a class implement multiple interfaces?</h4><button>Because interfaces have constructors.</button><button>Because Java supports multiple class inheritance.</button><button>Because a class may implement multiple contracts.</button><button>Because interface methods are always private.</button><div class="feedback"></div></div>
+<h3>Suggested coding assignments</h3><ol><li>Build a menu-driven calculator using Scanner, switch and methods.</li><li>Read 5 numbers into an array; print the minimum, maximum, sum and average.</li><li>Create a 3×3 matrix and print its transpose.</li><li>Create a <code>BankAccount</code> class with private balance, getter and deposit/withdraw methods with validation.</li><li>Create an abstract <code>Browser</code> class and concrete Chrome/Firefox classes.</li><li>Create a <code>LoginActions</code> interface and implement it in UI and API login classes.</li><li>Use an ArrayList to store browser names; remove duplicates with a Set.</li><li>Use a HashMap to store field names and expected values for a simple QA test.</li><li>Write a String validator that checks blank input, trims whitespace and compares expected text correctly.</li><li>Write try-catch handling for invalid numeric input and array index errors.</li></ol>
+<div class="callout interview"><strong>Ready-for-Selenium checkpoint:</strong> You should be comfortable with variables, methods, classes/objects, constructors, access modifiers, inheritance, interfaces, polymorphism, strings, exceptions, arrays and collections before building a maintainable Selenium framework.</div>
+</div></section>
+
+<section class="section searchable" id="glossary" data-search="glossary quick revision definitions terminology"><div class="section-head"><div class="num">21</div><div><h2>One-page quick glossary</h2><p>Fast recall before a class, practical assignment or interview.</p></div></div><div class="section-body"><table><thead><tr><th>Term</th><th>One-line meaning</th></tr></thead><tbody>
+<tr><td>Variable</td><td>Named storage for a value.</td></tr><tr><td>Primitive</td><td>One of Java's eight built-in value types.</td></tr><tr><td>Reference</td><td>A variable that refers to an object.</td></tr><tr><td>Method</td><td>Reusable block of behaviour in a class.</td></tr><tr><td>Parameter / argument</td><td>Input variable in method definition / actual value supplied at call.</td></tr><tr><td>Array</td><td>Fixed-length indexed container of one component type.</td></tr><tr><td>Class / object</td><td>Blueprint / runtime instance.</td></tr><tr><td>Inheritance</td><td>Subclassing with <code>extends</code>.</td></tr><tr><td>Polymorphism</td><td>One parent/interface reference can work with different implementations.</td></tr><tr><td>Abstraction</td><td>Expose essential behaviour and hide implementation details.</td></tr><tr><td>Encapsulation</td><td>Protect internal state behind controlled access.</td></tr><tr><td>Interface</td><td>Contract implemented by classes.</td></tr><tr><td>Constructor</td><td>Runs during object creation to initialize it.</td></tr><tr><td>Exception</td><td>Event that disrupts normal program flow.</td></tr><tr><td>Collection</td><td>Flexible object-grouping data structure.</td></tr><tr><td>Generic</td><td>Type parameter that provides compile-time type safety.</td></tr><tr><td>WebDriver</td><td>Selenium interface for controlling a browser.</td></tr><tr><td>WebElement</td><td>Selenium interface representing an element in the DOM.</td></tr><tr><td>Explicit wait</td><td>Waits until a specified condition is satisfied or timeout occurs.</td></tr><tr><td>POM</td><td>Page Object Model: organizes page locators and actions into page classes.</td></tr>
+</tbody></table></div></section>
+<div class="footer">Built as a self-contained Java revision resource for STAD Full Stack Automation learning.<br>Examples are educational; add the relevant imports and project dependencies when using them in a real application.</div>
+</main></div>
+<script>
+// Copy code snippets
+for (const button of document.querySelectorAll('.copy')) {
+  button.addEventListener('click', async () => {
+    const text = button.closest('.codebox').querySelector('pre code').innerText;
+    try { await navigator.clipboard.writeText(text); button.textContent = 'Copied!'; }
+    catch { button.textContent = 'Select code to copy'; }
+    setTimeout(() => button.textContent = 'Copy code', 1500);
+  });
+}
+// Search all learning modules by text and searchable keywords
+const search = document.getElementById('search');
+const sections = [...document.querySelectorAll('.section.searchable')];
+const noResults = document.getElementById('noResults');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase(); let visible = 0;
+  sections.forEach(section => {
+    const match = !q || (section.innerText + ' ' + section.dataset.search).toLowerCase().includes(q);
+    section.classList.toggle('hidden', !match); if (match) visible++;
+  });
+  noResults.style.display = visible ? 'none' : 'block';
+});
+// Expand/collapse interview answers and note blocks
+const details = [...document.querySelectorAll('details')];
+document.getElementById('expandAll').addEventListener('click', () => details.forEach(d => d.open = true));
+document.getElementById('collapseAll').addEventListener('click', () => details.forEach(d => d.open = false));
+// Progress is stored only in this open page session; no external services or storage.
+const checks = [...document.querySelectorAll('#revisionChecklist input')];
+function updateProgress(){const done=checks.filter(c=>c.checked).length;const pct=Math.round(done/checks.length*100);document.getElementById('progressBar').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';}
+checks.forEach(c=>c.addEventListener('change',updateProgress));
+// Interactive multiple-choice quiz
+for (const quiz of document.querySelectorAll('.quiz')) {
+  const correct = Number(quiz.dataset.answer); const buttons = [...quiz.querySelectorAll('button')];
+  buttons.forEach((button,index)=>button.addEventListener('click',()=>{
+    buttons.forEach(b=>{b.disabled=true;b.classList.remove('correct','wrong');});
+    buttons[correct].classList.add('correct');
+    const feedback=quiz.querySelector('.feedback');
+    if(index===correct){feedback.textContent='Correct. Good recall!';feedback.style.color='#15803d';}
+    else{button.classList.add('wrong');feedback.textContent='Not quite. The correct answer is highlighted. Review the matching section and try explaining why.';feedback.style.color='#b42318';}
+  }));
+}
+// Highlight the current navigation link while scrolling
+const navLinks=[...document.querySelectorAll('.side-nav a')];
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}}),{rootMargin:'-20% 0px -70% 0px'});
+document.querySelectorAll('main section[id]').forEach(section=>observer.observe(section));
+</script>
+</body>
+</html>
